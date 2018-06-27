@@ -1,0 +1,10 @@
+site_name: pytest-resource
+site_description: Load resource fixture plugin to use with pytest
+site_author: Kazuki Iwata
+
+theme: readthedocs
+
+repo_url: https://github.com/kzmake/pytest-resource
+
+pages:
+- Home: index.md
