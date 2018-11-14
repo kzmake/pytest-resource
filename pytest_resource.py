@@ -1,5 +1,3 @@
-# encoding:utf-8
-
 import pytest
 
 
@@ -12,12 +10,13 @@ def resource(request):
     def test_hoge(resource):
         pass
     """
-    print(request.keywords)
-    if 'resource' not in request.keywords:
+    resource = request.node.get_closest_marker('resource')
+    if resource:
+        path = resource.args[0]
+        with open(path, 'r') as f:
+            data = f.read()
+
+        return data
+
+    else:
         raise ValueError("Resource not found")
-
-    path = request.keywords.get('resource').args[0]
-    with open(path, 'r') as f:
-        data = f.read()
-
-    return data
