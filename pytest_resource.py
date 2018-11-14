@@ -1,7 +1,7 @@
 import pytest
 
 
-@pytest.fixture
+@pytest.fixture(scope='function')
 def resource(request):
     """
     指定されたpathからファイルを読み込む
